@@ -20,7 +20,16 @@
     "@angular/router": "^14.0.0-next.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@molteni/export-csv": "^0.0.8",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "bootstrap": "^5.1.0",
+    "faker": "^5.5.3",
+    "jquery": "^3.6.0",
+    "jspdf": "^2.4.0",
+    "jspdf-autotable": "^3.5.20",
+    "ngx-pagination": "^5.1.1",
+    "node": "^16.17.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.0",
@@ -33,6 +42,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.7.2"
+    "typescript": "~4.7.2",
+    "@types/datatables.net": "^1.10.20",
+    "@types/jquery": "^3.5.6",
+    "@types/node": "^12.11.1"
   }
 }
