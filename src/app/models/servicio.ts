@@ -27,4 +27,4 @@ export class DetallePostBody {
   idPresentacionProducto!: Partial<PresentacionProducto>;
   idServicio!: Partial<Servicio>;
 }
-z
+
