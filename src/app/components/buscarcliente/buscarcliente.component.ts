@@ -17,7 +17,7 @@ export class BuscarclienteComponent implements OnInit {
 
   public data: Persona[] = [];
   public columns = ["Nombres","Apellidos","Email","Telefono","Ruc","Cedula","Fecha de Nacimiento","Seleccionar"];
-  
+
   config = {
     itemsPerPage: 5,
     currentPage: 1,
@@ -36,7 +36,7 @@ export class BuscarclienteComponent implements OnInit {
 
 
   @Output() seleccionarClienteEvent = new EventEmitter<Persona>()
-  constructor(private servicePersona: PersonaService) { 
+  constructor(private servicePersona: PersonaService) {
   }
 
   ngOnInit(): void {
@@ -47,7 +47,7 @@ export class BuscarclienteComponent implements OnInit {
     let currentPage = this.config.currentPage;
     let itemsPerPage = this.config.itemsPerPage;
     let inicio = currentPage-1;
-    inicio = inicio*itemsPerPage; 
+    inicio = inicio*itemsPerPage;
     this.servicePersona.get_Clientes(this.filtros,itemsPerPage,inicio)
     .subscribe((data:any)=>{
         console.log(data);
@@ -67,21 +67,16 @@ export class BuscarclienteComponent implements OnInit {
   pageChanged(event: number) : void{
     setTimeout(() => {
       this.config.currentPage = event;
-      
+
   }, 3);
   this.getClientes()
   }
 
-  
+
   seleccionarCliente(cliente: Persona){
     this.seleccionarClienteEvent.emit(cliente)
   }
 
-  
-
-}
-
-  
 
 
 }
