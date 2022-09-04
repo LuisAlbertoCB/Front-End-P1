@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
 import { HomeComponent } from './components/home/home.component';
+import { ReporteComponent } from './components/reporte/reporte.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     BuscarclienteComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ReporteComponent
   ],
   imports: [
     BrowserModule,
