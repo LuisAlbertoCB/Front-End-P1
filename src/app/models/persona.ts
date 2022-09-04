@@ -11,3 +11,9 @@ export class Persona {
     fechaNacimiento!: string;
     usuarioLogin!: string;
 }
+
+
+export class listaPersonas {
+        lista!:Persona[];
+        listaDatos!: number;
+}
