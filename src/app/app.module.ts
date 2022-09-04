@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from "@angular/forms";
 import { HomeComponent } from './components/home/home.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
+import { ServicioComponent } from './components/servicio/servicio.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ReporteComponent } from './components/reporte/reporte.component';
     BuscarclienteComponent,
     LoginComponent,
     HomeComponent,
-    ReporteComponent
+    ReporteComponent,
+    ServicioComponent
   ],
   imports: [
     BrowserModule,
