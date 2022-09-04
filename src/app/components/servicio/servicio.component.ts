@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/models/persona';
 import { Servicio } from 'src/app/models/servicio';
-import { ServicioService } from '../service/servicio.service';
+import { ServicioService } from 'src/app/services/servicio.service';
 
 type Filtro = {
   fechaDesde ?: string,
