@@ -26,8 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    this.servicioPersona.get_Usuarios()
-      .subscribe(
+    this.servicioPersona.get_Usuarios().subscribe(
       entity => {
 
         this.personas = entity.lista
