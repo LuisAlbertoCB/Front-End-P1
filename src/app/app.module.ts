@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BuscarclienteComponent } from './components/buscarcliente/buscarcliente.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BuscarclienteComponent
   ],
   imports: [
     BrowserModule,
