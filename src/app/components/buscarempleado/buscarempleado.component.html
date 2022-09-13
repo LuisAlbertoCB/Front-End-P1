@@ -6,7 +6,7 @@
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos del Cliente</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Datos del empleado</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -27,7 +27,7 @@
                 <button type="button" class="btn btn-secondary mt-2" (click)="buscar()">Buscar</button>
               </div>
             </div>
-              </form>  
+        </form>  
         <div class="table-responsive">
             <table class="table">
               <thead>
@@ -44,20 +44,19 @@
                   <td>{{group.ruc}}</td>
                   <td>{{group.cedula}}</td>
                   <td>{{group.fechaNacimiento}}</td>
-                  <td><button class="btn  btn-outline-primary" data-bs-dismiss="modal" (click)="seleccionarCliente(group)"><i class="bi bi-arrow-right"></i></button></td>
+                  <td><button class="btn  btn-outline-primary" data-bs-dismiss="modal" (click)="seleccionarEmpleado(group)"><i class="bi bi-arrow-right"></i></button></td>
                 </tr>
               </tbody>
             </table>
-        </div>
-        <pagination-controls 
-          id="paginationCliente"
-          [previousLabel]="back"
-          [nextLabel]="next"
-          (pageChange)="pageChanged($event)">          
-      </pagination-controls>  
-      </div>     
+            </div>
+            <pagination-controls 
+                id="paginationEmpleado"
+                [previousLabel]="back"
+                [nextLabel]="next"
+                (pageChange)="pageChanged($event)">
+            </pagination-controls>
+      </div>
       <div class="modal-footer">
       </div>
     </div>
-    
 </div>
