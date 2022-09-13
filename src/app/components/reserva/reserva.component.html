@@ -1,0 +1,98 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+
+<form>
+  <div class="row">
+    <div class="form-group">
+      <label for="empleado">Empleado</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="empleado" name="empleado" readonly
+               [(ngModel)]="empleado.fullName">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#empleadoModal"
+                  type="button">Ingresar Datos</button>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="cliente">Cliente</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="cliente" readonly name="cliente"
+               [(ngModel)]="cliente.fullName">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#clienteModal"
+                  type="button">Ingresar Datos</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label for="fechaDesde">Desde</label>
+      <input  type="date" class="form-control" id="fechaDesde" name="fechaDesde" [(ngModel)]="filtros.fechaDesde">
+    </div>
+    <div class="form-group">
+      <label for="fechaHasta">Hasta</label>
+      <input type="date" class="form-control" id="fechaHasta" name="fechaHasta" [(ngModel)]="filtros.fechaHasta">
+    </div>
+  </div>
+</form>
+
+<div class="row">
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-primary mt-2" (click)="buscar()">Buscar</button>
+  </div>
+
+  <div class="col-md-2">
+    <button type="button" class="btn btn-outline-primary mt-2" routerLink="/reserva/nuevo">Crear Reserva</button>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col" *ngFor="let header of columns" >{{header}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reserva of listaDeReservas | paginate: config">
+      <td>{{reserva.fecha}}</td>
+      <td>{{reserva.horaInicio}}</td>
+      <td>{{reserva.horaFin}}</td>
+      <td>{{reserva.idEmpleado.nombre + " " + reserva.idEmpleado.apellido }}</td>
+      <td>{{reserva.idCliente.nombre + " " + reserva.idCliente.apellido }}</td>
+      <td>
+        <!-- iconos: https://icons.getbootstrap.com/-->
+        <button type="button" class="btn btn-danger mx-2" (click)="cancelarReserva(reserva)">
+          <i class="bi-x-circle text-light"></i> Cancelar
+        </button>
+
+        <button type="button" class="btn btn-secondary mx-2" [routerLink]="[reserva.idReserva, 'editar']">
+          <i class="bi-pencil-square text-light"></i> Modificar
+        </button>
+
+        <button type="button" class="btn btn-primary mx-2" routerLink="/ficha/nuevo">
+          <i class="bi-file-earmark-plus text-light"></i> Nueva Ficha
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<pagination-controls
+  [previousLabel]="back"
+  [nextLabel]="next"
+  (pageChange)="pageChanged($event)">
+</pagination-controls>
+
+<div class="modal fade" id="empleadoModal" tabindex="-1" aria-hidden="true">
+  <app-buscarempleado (seleccionarEmpleadoEvent)="seleccionarEmpleado($event)"></app-buscarempleado>
+</div>
+
+<div class="modal fade" id="clienteModal" tabindex="-1" aria-hidden="true">
+  <app-buscarcliente (seleccionarClienteEvent)="seleccionarCliente($event)"></app-buscarcliente>
+</div>

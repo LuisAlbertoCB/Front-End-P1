@@ -13,6 +13,7 @@ import { ServicioComponent } from './components/servicio/servicio.component';
 import { FichaComponent } from './components/ficha/ficha.component';
 import { ModificarfichaComponent } from './components/ficha/modificarficha/modificarficha.component';
 import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.component';
+import { ReservaComponent } from './components/reserva/reserva.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.co
     ServicioComponent,
     FichaComponent,
     ModificarfichaComponent,
-    NuevafichaComponent
+    NuevafichaComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,
