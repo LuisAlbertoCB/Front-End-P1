@@ -11,6 +11,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
 import { ServicioComponent } from './components/servicio/servicio.component';
 import { FichaComponent } from './components/ficha/ficha.component';
+import { ModificarfichaComponent } from './components/ficha/modificarficha/modificarficha.component';
+import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { FichaComponent } from './components/ficha/ficha.component';
     HomeComponent,
     ReporteComponent,
     ServicioComponent,
-    FichaComponent
+    FichaComponent,
+    ModificarfichaComponent,
+    NuevafichaComponent
   ],
   imports: [
     BrowserModule,
