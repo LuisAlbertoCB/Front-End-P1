@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { HomeComponent } from './components/home/home.component';
 import { ReporteComponent } from './components/reporte/reporte.component';
 import { ServicioComponent } from './components/servicio/servicio.component';
+import { FichaComponent } from './components/ficha/ficha.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ServicioComponent } from './components/servicio/servicio.component';
     LoginComponent,
     HomeComponent,
     ReporteComponent,
-    ServicioComponent
+    ServicioComponent,
+    FichaComponent
   ],
   imports: [
     BrowserModule,
