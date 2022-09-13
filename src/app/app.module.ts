@@ -14,6 +14,8 @@ import { FichaComponent } from './components/ficha/ficha.component';
 import { ModificarfichaComponent } from './components/ficha/modificarficha/modificarficha.component';
 import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
+import { NuevaReservaComponent } from './reserva/reserva/nueva-reserva/nueva-reserva.component';
+import { ModificarReservaComponent } from './components/reserva/modificar-reserva/modificar-reserva.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ReservaComponent } from './components/reserva/reserva.component';
     FichaComponent,
     ModificarfichaComponent,
     NuevafichaComponent,
-    ReservaComponent
+    ReservaComponent,
+    NuevaReservaComponent,
+    ModificarReservaComponent
   ],
   imports: [
     BrowserModule,
