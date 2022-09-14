@@ -25,6 +25,7 @@ import { ModificarReservaComponent } from './components/reserva/modificar-reserv
 import { BuscarempleadoComponent } from './components/buscarempleado/buscarempleado.component';
 import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
 import { VerServicioComponent } from './components/servicio/ver-servicio/ver-servicio.component';
+import { AgregarDetalleComponent } from './components/servicio/agregar-detalle/agregar-detalle.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { VerServicioComponent } from './components/servicio/ver-servicio/ver-ser
     ModificarReservaComponent,
     BuscarempleadoComponent,
     NuevoServicioComponent,
-    VerServicioComponent
+    VerServicioComponent,
+    AgregarDetalleComponent
   ],
   imports: [
     BrowserModule,

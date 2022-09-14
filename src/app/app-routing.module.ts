@@ -12,6 +12,7 @@ import { ReservaComponent } from './components/reserva/reserva.component';
 import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
 import { ServicioComponent } from './components/servicio/servicio.component';
 import { VerServicioComponent } from './components/servicio/ver-servicio/ver-servicio.component';
+import { AgregarDetalleComponent } from './components/servicio/agregar-detalle/agregar-detalle.component';
 
 const routes: Routes = [
   {
