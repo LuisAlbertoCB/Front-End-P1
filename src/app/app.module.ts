@@ -23,6 +23,7 @@ import { ReservaComponent } from './components/reserva/reserva.component';
 import { NuevaReservaComponent } from './components/reserva/nueva-reserva/nueva-reserva.component';
 import { ModificarReservaComponent } from './components/reserva/modificar-reserva/modificar-reserva.component';
 import { BuscarempleadoComponent } from './components/buscarempleado/buscarempleado.component';
+import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BuscarempleadoComponent } from './components/buscarempleado/buscaremple
     ReservaComponent,
     NuevaReservaComponent,
     ModificarReservaComponent,
-    BuscarempleadoComponent
+    BuscarempleadoComponent,
+    NuevoServicioComponent
   ],
   imports: [
     BrowserModule,
