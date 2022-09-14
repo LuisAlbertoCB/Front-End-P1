@@ -13,6 +13,8 @@ import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nue
 import { ServicioComponent } from './components/servicio/servicio.component';
 import { VerServicioComponent } from './components/servicio/ver-servicio/ver-servicio.component';
 import { AgregarDetalleComponent } from './components/servicio/agregar-detalle/agregar-detalle.component';
+import { ModificarfichaComponent } from './components/ficha/modificarficha/modificarficha.component';
+import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,18 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent,
+  },
+  {
+    path: "ficha/:id/editar",
+    component: ModificarfichaComponent
+  },
+  {
+    path: "ficha/nuevo",
+    component: NuevafichaComponent
+  },
+  {
+    path: "ficha",
+    component: FichaComponent
   },
   {
     path: "reporte",
