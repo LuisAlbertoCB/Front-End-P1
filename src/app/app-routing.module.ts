@@ -9,6 +9,10 @@ import { ReporteComponent } from './components/reporte/reporte.component';
 
 import { ReservaComponent } from './components/reserva/reserva.component';
 
+import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
+import { ServicioComponent } from './components/servicio/servicio.component';
+import { VerServicioComponent } from './components/servicio/ver-servicio/ver-servicio.component';
+
 const routes: Routes = [
   {
     path: "",
@@ -26,6 +30,26 @@ const routes: Routes = [
     path: "reserva",
     component: ReservaComponent
   },
+  {
+    path: "servicio",
+    component: ServicioComponent
+  },
+  {
+    path: "servicio/nuevo",
+    component: NuevoServicioComponent
+  },
+  {
+    path: "servicio/:id/ver",
+    component: VerServicioComponent
+  },
+  {
+    path: "servicio/:id/detalle",
+    component: AgregarDetalleComponent
+  },
+  {
+    path: "reporte",
+    component: ReporteComponent
+  }
 ]
 
 @NgModule({
