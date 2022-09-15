@@ -31,7 +31,6 @@ export class ReservaService {
     }
     if (filtros.fechaDesde) {
       ejemplo["fechaDesdeCadena"] = filtros.fechaDesde.split('-').join('').toString();
-      console.log('FEcha desde cadeana :' ,ejemplo.fechaDesdeCadena );
     }
     if (filtros.fechaHasta) {
       ejemplo["fechaHastaCadena"] = filtros.fechaHasta.split('-').join('').toString();
@@ -43,10 +42,8 @@ export class ReservaService {
       //.set('inicio', inicio)
       .set('', JSON.stringify(ejemplo));
 
-    console.log('el ejemplo es : ', ejemplo);
     let urlCodificado =this.api + "?ejemplo" +encodeURIComponent(JSON.stringify(ejemplo));
     //retornar una url codificada
-    console.log('Usando solo params : ',`${this.api}stock-nutrinatalia/reserva?ejemplo${params}`);
     //const data_gated=  this.http.get<listadatos<Reserva>>(`${this.api}stock-nutrinatalia/reserva?ejemplo${urlCodificado}`);
     //return data_gated  ;
 
