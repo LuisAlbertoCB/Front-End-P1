@@ -51,18 +51,11 @@ export class ReservaComponent implements OnInit {
 
 
   getAll() {
-    /*let currentPage = this.config.currentPage;
-    let itemsPerPage = this.config.itemsPerPage;
-
-    let inicio = currentPage - 1;
-    inicio = inicio * itemsPerPage;*/
-
     this.reservaService.getReservas(this.filtros)
       .subscribe((data: listadatos<Reserva>) => {
         this.listaDeReservasCompleto = data.lista;
         this.listaDeReservas=this.listaDeReservasCompleto;
         this.config.totalItems = this.listaDeReservas.length;
-        console.log('cantidad de items :', this.config.totalItems);
       });
 
   }

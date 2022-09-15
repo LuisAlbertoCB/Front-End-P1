@@ -87,7 +87,10 @@ export class ModificarReservaComponent implements OnInit {
     reservaBody.observacion = this.reserva.observacion;
     reservaBody.idReserva = this.reserva.idReserva;
 
-    this.reservaService.modificarReserva(reservaBody).subscribe(() => console.log('Se ha modificado la reserva!'));
+    this.reservaService.modificarReserva(reservaBody)
+    .subscribe(() =>
+     console.log('Se ha modificado la reserva!')
+     );
   }
 
   /*getReservas(idEmpleado: number, fecha: string) {

@@ -16,7 +16,7 @@ export class ReservaService {
 
 
 
-  api = base_url+'stock-nutrinatalia/reserva';
+  api = base_url+'';
 
   constructor(private http: HttpClient) { }
 
@@ -30,13 +30,11 @@ export class ReservaService {
       ejemplo["idCliente"] = { "idPersona": filtros.idCliente }
     }
     if (filtros.fechaDesde) {
-
-
       ejemplo["fechaDesdeCadena"] = filtros.fechaDesde.split('-').join('').toString();
       console.log('FEcha desde cadeana :' ,ejemplo.fechaDesdeCadena );
     }
     if (filtros.fechaHasta) {
-      ejemplo["fechaHastaCadena"] = filtros.fechaHasta.split('-').join('').toString()
+      ejemplo["fechaHastaCadena"] = filtros.fechaHasta.split('-').join('').toString();
     }
     //ejemplo['flagEstado'] = "R";
     //console.log('los datos del filtro',JSON.stringify(ejemplo));
@@ -48,23 +46,15 @@ export class ReservaService {
     console.log('el ejemplo es : ', ejemplo);
     let urlCodificado =this.api + "?ejemplo" +encodeURIComponent(JSON.stringify(ejemplo));
     //retornar una url codificada
-    console.log('Usando solo params : ',`${this.api}?ejemplo${params}`);
-
-    console.log('usando stringfy : ', urlCodificado);
-
-
+    console.log('Usando solo params : ',`${this.api}stock-nutrinatalia/reserva?ejemplo${params}`);
     //const data_gated=  this.http.get<listadatos<Reserva>>(`${this.api}stock-nutrinatalia/reserva?ejemplo${urlCodificado}`);
-    //console.log('GetReserva: ',`${this.api}stock-nutrinatalia/reserva?ejemplo${urlCodificado}`);
-    //console.log("El dato retornado es ", data_gated);
     //return data_gated  ;
-    let listaBruta =this.http.get<listadatos<Reserva>>(this.api, {params:params})
+
+    //let listaBruta =this.http.get<listadatos<Reserva>>(this.api, {params:params})
 
 
-    return this.http.get<listadatos<Reserva>>(this.api, {params:params})
+    return this.http.get<listadatos<Reserva>>(`${this.api}stock-nutrinatalia/reserva?ejemplo`, {params:params})
 
-    //const data_gated=this.http.get<listadatos<Reserva>>(`${this.api}stock-nutrinatalia/reserva?ejemplo`, {params});
-    //console.log("El dato retornado es ", data_gated);
-    //return data_gated;
   }
 
   postReserva(reserva: ReservaPostBody): Observable<Reserva> {
@@ -76,6 +66,7 @@ export class ReservaService {
     });
   }
 
+/*
   cancelarReserva(idReserva: number): Observable<void> {
     console.log('Se cancela Reserva: ',`${this.api}stock-nutrinatalia/reserva/${idReserva}`)
     return this.http.delete<void>(`${this.api}stock-nutrinatalia/reserva/${idReserva}`, {
@@ -83,7 +74,13 @@ export class ReservaService {
         "usuario": localStorage.getItem('userSession') as string,
       }
     });
+  }*/
+
+  cancelarReserva(idReserva: number): Observable<void> {
+    console.log('Se cancela Reserva: ',`${this.api}stock-nutrinatalia/reserva/${idReserva}`);
+    return this.http.delete<void>(`${this.api}stock-nutrinatalia/reserva/${idReserva}`);
   }
+  
 
   getAgenda(idPersona: number, fecha: string, itemsPerPage: number, inicio: number): Observable<Reserva[]> {
 
@@ -106,6 +103,7 @@ export class ReservaService {
 
   modificarReserva(reserva: ReservaPutBody): Observable<void> {
     console.log('Modificando reserva: ',`${this.api}stock-nutrinatalia/reserva/${reserva.idReserva}`);
+   
     return this.http.put<void>(`${this.api}stock-nutrinatalia/reserva`, reserva);
   }
 }
