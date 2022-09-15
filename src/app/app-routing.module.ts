@@ -15,6 +15,8 @@ import { VerServicioComponent } from './components/servicio/ver-servicio/ver-ser
 import { AgregarDetalleComponent } from './components/servicio/agregar-detalle/agregar-detalle.component';
 import { ModificarfichaComponent } from './components/ficha/modificarficha/modificarficha.component';
 import { NuevafichaComponent } from './components/ficha/nuevaficha/nuevaficha.component';
+import { ModificarReservaComponent } from './components/reserva/modificar-reserva/modificar-reserva.component';
+import { NuevaReservaComponent } from './components/reserva/nueva-reserva/nueva-reserva.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,14 @@ const routes: Routes = [
   {
     path: "reserva",
     component: ReservaComponent
+  },
+  {
+    path: "reserva/nuevo",
+    component: NuevaReservaComponent
+  },
+  {
+    path: "reserva/:id/editar",
+    component: ModificarReservaComponent
   },
   {
     path: "servicio",
