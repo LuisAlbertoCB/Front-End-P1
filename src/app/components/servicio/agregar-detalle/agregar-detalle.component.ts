@@ -53,6 +53,8 @@ export class AgregarDetalleComponent implements OnInit {
   getPresentacionProducto(){
     this.servicioService.getPresentacionProducto().subscribe((data:any)=>{
       this.presentacionProducto = data.lista;
+      console.log(data.lista)
+      console.log(("Holaaa"))
     })
   }
 
