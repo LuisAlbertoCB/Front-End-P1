@@ -22,7 +22,8 @@ export class AgregarDetalleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private servicioService: ServicioService) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe( paramMap => {
+    this.route.paramMap
+    .subscribe( paramMap => {
       this.servicio.idServicio = parseInt(paramMap.get('id') ?? '');
       this.servicioService.getUnServicio(this.servicio.idServicio)
       .subscribe((data:any)=>{
@@ -31,8 +32,9 @@ export class AgregarDetalleComponent implements OnInit {
         this.cliente = data.idFichaClinica.idCliente;
         console.log(data)
       });
-
     });
+
+    this.getPresentacionProducto();
   }
 
   agregarDetalle() {
@@ -47,14 +49,15 @@ export class AgregarDetalleComponent implements OnInit {
       idServicio: this.servicio.idServicio
     };
 
-    this.servicioService.postDetalle(detalleBody, this.servicio.idServicio).subscribe((data: Servicio) => console.log(JSON.stringify(data)));
+    this.servicioService.postDetalle(detalleBody, this.servicio.idServicio)
+    .subscribe((data: Servicio) => console.log(JSON.stringify(data)));
   }
 
   getPresentacionProducto(){
     this.servicioService.getPresentacionProducto().subscribe((data:any)=>{
-      this.presentacionProducto = data.lista;
-      console.log(data.lista)
-      console.log(("Holaaa"))
+      this.presentacionProductos = data.lista;
+      console.log(data.lista);
+      console.log(("Holaaa"));
     })
   }
 
