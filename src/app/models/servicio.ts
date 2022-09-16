@@ -3,12 +3,10 @@ import { PresentacionProducto } from "./presentacionProducto";
 
 export class Servicio {
   idServicio!: number;
-  //flagEstado: R,
   fechaHora!: string;
   presupuesto!: number;
   idFichaClinica!: Ficha;
   observacion!: string;
-  //listaDetalles!: T[];
 }
 
 export class ServicioPostBody {

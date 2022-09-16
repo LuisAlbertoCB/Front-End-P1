@@ -6,6 +6,7 @@ import { dominio } from '../url_API';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { PresentacionProducto } from '../models/presentacionProducto';
+import { param } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -52,14 +53,32 @@ export class ServicioService {
     });
   }
 
+  /*
   postDetalle(detalle: DetallePostBody, idServicio: number): Observable < Servicio > {
     console.log('Agregando detalle' + JSON.stringify(detalle));
-    return this.http.post<Servicio>(this.api + '/' + idServicio, detalle, {
+  
+    return this.http.post<Servicio>(this.api + '/' + idServicio +  '/detalle', detalle, {
       headers: {
         "usuario": localStorage.getItem('userSession') as string,
+        "Content-Type":'application/json',
       }
     });
   }
+*/
+
+  postDetalle(detalle: DetallePostBody, idServicio: number): Observable < Servicio > {
+
+    const headers = { "Content-Type":'application/json',
+                      "usuario": localStorage.getItem('userSession') as string,
+                    }
+
+    const jsonified=JSON.stringify(detalle);
+    const body =  jsonified 
+    const url=this.api + '/' + idServicio +  '/detalle';
+    
+    return this.http.post<Servicio>(url,body,{headers});
+  }
+
 
   cancelarDetalle(idServicio: number, idServicioDetalle: number): Observable < void> {
     console.log(`${this.api}/${idServicio}/detalle/${idServicioDetalle}`)
