@@ -21,8 +21,19 @@ export class ModificarfichaComponent implements OnInit {
       this.servicioFicha.getFicha(this.ficha.idFichaClinica)
         .subscribe((data:any)=>{
           this.ficha = data;
-          this.ficha.idCliente.fullName =this.ficha.idCliente.nombre + ' ' + this.ficha.idCliente.apellido;
-          this.ficha.idEmpleado.fullName =this.ficha.idEmpleado.nombre + ' ' +   this.ficha.idEmpleado.apellido;
+          if(this.ficha.idCliente.nombre != undefined && this.ficha.idCliente.apellido != undefined){
+            this.ficha.idCliente.fullName =this.ficha.idCliente.nombre + ' ' + this.ficha.idCliente.apellido;
+          }
+          else{
+            this.ficha.idCliente.fullName= '';
+          }
+          if(this.ficha.idEmpleado.nombre != undefined && this.ficha.idEmpleado.apellido != undefined){
+            this.ficha.idEmpleado.fullName =this.ficha.idEmpleado.nombre + ' ' +   this.ficha.idEmpleado.apellido;
+          }
+          else{
+            this.ficha.idEmpleado.fullName= '';
+          }
+          
         });
       this.servicioServicio.getServicioFicha(this.ficha.idFichaClinica).subscribe((data:any)=>{
         this.servicios = data.lista;

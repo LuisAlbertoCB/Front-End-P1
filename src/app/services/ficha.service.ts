@@ -36,6 +36,9 @@ export class ServicefichaService {
       .set('inicio',inicio)
       .set('ejemplo',JSON.stringify(ejemplo))
 
+
+
+
     return this.http.get<listadatos<Ficha>>(this.api, {params:params});
 
   }
@@ -59,6 +62,5 @@ export class ServicefichaService {
   putFicha(ficha: Ficha):Observable<Ficha>{
     return this.http.put<Ficha>(this.api,{'idFichaClinica': ficha.idFichaClinica, 'observacion': ficha.observacion});
   }
-
 
 }

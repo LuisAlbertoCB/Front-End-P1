@@ -40,7 +40,7 @@
     <div class="form-group">
       <label for="subcategoria">Tipo Producto</label>
       <select name="subcategoria" class="form-select" id="subcategoria" [(ngModel)]="tipoProducto">
-        <option *ngFor="let tipoProducto of tipoProductos" [ngValue]="tipoProducto">{{tipoProducto.descripcion}}</option>
+        <option (click)="filtrar_subcategorias(tipoProducto.idCategoria.idCategoria)" *ngFor="let tipoProducto of tipoProductos" [ngValue]="tipoProducto">{{tipoProducto.descripcion}}</option>
       </select>
     </div>
 

@@ -13,6 +13,14 @@ export class ServicetipoproductoService {
   getTipoProductos(idCategoria: number){
     let params = new HttpParams()
       .set('ejemplo', `{"idCategoria":{"idCategoria": ${idCategoria}}}`)
+      console.log(params);
     return this.http.get<listadatos<Subcategoria>>(this.api,{params:params});
   }
-}
+
+
+  get_AllTipos(){
+    return this.http.get<listadatos<Subcategoria>>(this.api);
+  }
+
+  }
+

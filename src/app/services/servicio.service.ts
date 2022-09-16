@@ -79,10 +79,6 @@ export class ServicioService {
     return this.http.get<listadatos<PresentacionProducto>>(dominio + 'stock-nutrinatalia/presentacionProducto');
   }
 
-
-
-
-
   getServicioFicha(idFichaClinica: number):Observable<listadatos<Servicio>>{
     let params = new HttpParams()
       .set('ejemplo',`{"idFichaClinica":{"idFichaClinica": ${idFichaClinica}}}`);

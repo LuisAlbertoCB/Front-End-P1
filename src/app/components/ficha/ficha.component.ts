@@ -39,16 +39,26 @@ export class FichaComponent implements OnInit {
   categorias: Categoria [] = []
   tipoProductos: Subcategoria[] = []
 
+  fulltiposProductos: Subcategoria[] = []
+ 
   empleado : Persona = new Persona()
   cliente : Persona = new Persona()
   categoria: Categoria = new Categoria()
   tipoProducto: Subcategoria = new Subcategoria()
   filtros: Filtro = {};
-  constructor(private http: HttpClient, private servicioFicha: ServicefichaService,private serviceCategoria: ServicecategoriaService,private serviceTipoProducto: ServicetipoproductoService) { }
+  constructor(private http: HttpClient, 
+              private servicioFicha: ServicefichaService,
+              private serviceCategoria: ServicecategoriaService,
+              private serviceTipoProducto: ServicetipoproductoService
+          ) { }
 
   ngOnInit(){
     this.getCategorias()
+    this.get_All_subcategories()
   }
+
+  //Este metodo no toma en cuenta la categorias que tomes
+
   getFichas(){
     let currentPage = this.config.currentPage;
     let itemsPerPage = this.config.itemsPerPage;
@@ -90,9 +100,36 @@ export class FichaComponent implements OnInit {
   }
 
   getTipoProductos(){
-    this.serviceTipoProducto.getTipoProductos(this.categoria.idCategoria).subscribe((data:any)=>{
+    this.serviceTipoProducto.getTipoProductos(this.categoria.idCategoria)
+    .subscribe((data:any)=>{
       this.tipoProductos = data.lista
     })
   }
+
+
+
+
+//Codigo nuevo para hacer funcionar Tipos Productos
+
+  get_All_subcategories(){
+    this.serviceTipoProducto.get_AllTipos()
+    .subscribe((data:any)=>{
+      this.tipoProductos = data.lista
+      this.fulltiposProductos=this.tipoProductos
+    })
+  }
+
+
+  filtrar_subcategorias(id_categoria:number){
+    this.tipoProductos=this.fulltiposProductos;
+    this.tipoProductos=this.tipoProductos.filter((obj) => {
+      return id_categoria === obj.idCategoria.idCategoria;
+    })
+
+  }
+
+
+
+
 }
 
